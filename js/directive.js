@@ -17,6 +17,7 @@ function zoom(classNames = {}, settings = {}) {
     var _dataScale = "data-scale";
     var _dataTranslateX = "data-translate-x";
     var _dataTranslateY = "data-translate-y";
+    var _transition = classNames["transition"] || "transition";
     var _visible = classNames["visible"] || "visible";
     var $container;
     var $element;
@@ -208,6 +209,8 @@ function zoom(classNames = {}, settings = {}) {
                 doubleClickMonitor = [null];
             }, 300);
         } else if (doubleClickMonitor[0] === e.target && mousemoveCount <= 5 && isWithinRange(initialPointerOffsetX, doubleClickMonitor[1] - 10, doubleClickMonitor[1] + 10) === true && isWithinRange(initialPointerOffsetY, doubleClickMonitor[2] - 10, doubleClickMonitor[2] + 10) === true) {
+            addClass($element, _transition);
+            
             if (hasClass($container, _active) === true) {
                 /* Set attributes */
                 $element.setAttribute(_dataScale, 1);
@@ -230,13 +233,19 @@ function zoom(classNames = {}, settings = {}) {
                 moveScaleElement($element, 0, 0, C_scaleDefault);
             }
 
+            setTimeout(function()
+            {
+                removeClass($element, _transition);
+            }, 200);
+
             doubleClickMonitor = [null];
             return false;
         }
 
         /* Initialize helpers */
-        containerOffsetX = $container.offsetLeft;
-        containerOffsetY = $container.offsetTop;
+        offset = $container.getBoundingClientRect();
+        containerOffsetX = offset.left;
+        containerOffsetY = offset.top;
         containerHeight = $container.clientHeight;
         containerWidth = $container.clientWidth
         elementHeight = $element.clientHeight;
@@ -312,8 +321,9 @@ function zoom(classNames = {}, settings = {}) {
         $element = this.children[0];
 
         /* Initialize helpers */
-        containerOffsetX = $container.offsetLeft;
-        containerOffsetY = $container.offsetTop;
+        offset = $container.getBoundingClientRect();
+        containerOffsetX = offset.left;
+        containerOffsetY = offset.top;
         containerHeight = $container.clientHeight;
         containerWidth = $container.clientWidth;
         elementHeight = $element.clientHeight;
@@ -334,6 +344,8 @@ function zoom(classNames = {}, settings = {}) {
                     doubleTapMonitor = [null];
                 }, 300);
             } else if (doubleTapMonitor[0] === e.target && touchmoveCount <= 1 && isWithinRange(initialPointerOffsetX, doubleTapMonitor[1] - 10, doubleTapMonitor[1] + 10) === true && isWithinRange(initialPointerOffsetY, doubleTapMonitor[2] - 10, doubleTapMonitor[2] + 10) === true) {
+                addClass($element, _transition);
+                
                 if (hasClass($container, _active) === true) {
                     /* Set attributes */
                     $element.setAttribute(_dataScale, 1);
@@ -355,6 +367,11 @@ function zoom(classNames = {}, settings = {}) {
                     /* @->moveScaleElement */
                     moveScaleElement($element, 0, 0, C_scaleDefault);
                 }
+
+                setTimeout(function()
+                {
+                    removeClass($element, _transition);
+                }, 200);
 
                 doubleTapMonitor = [null];
                 return false;
