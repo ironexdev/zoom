@@ -5,8 +5,11 @@ zoom();
 
 /* @-<zoom ********************************************************************/
 /******************************************************************************/
-function zoom(classNames = {}, settings = {}) {
+function zoom(classNames, settings) {
     /* Settings */
+    classNames = (typeof(classNames) !== 'undefined' && Object.keys(classNames).length ? classNames : {});
+    settings = (typeof(settings) !== 'undefined' && Object.keys(settings).length ? settings : {});
+    
     var C_scaleDefault = settings["scaleDefault"] || 2; // Used on doubleclick, doubletap and resize
     var C_scaleDifference = settings["scaleDifference"] || 0.5; // Used on wheel zoom
     var C_scaleMax = settings["scaleMax"] || 10;
