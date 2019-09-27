@@ -15,6 +15,10 @@ function zoom(classNames, settings) {
     var C_scaleMax = settings["scaleMax"] || 10;
     var C_scaleMin = settings["scaleMin"] || 1;
 
+    /* Callbacks */
+    var onZoomStart = settings["onZoomStart"] || null;
+    var onZoomEnd = settings["onZoomEnd"] || null;
+
     /* Selectors */
     var _active = classNames["active"] || "active";
     var _dataScale = "data-scale";
@@ -118,6 +122,9 @@ function zoom(classNames, settings) {
 
                 if (targetScale === 1) {
                     removeClass($container, _active);
+                    if (onZoomEnd) {
+                        onZoomEnd($container);
+                    }
                 }
 
                 /* Set attributes */
@@ -221,6 +228,9 @@ function zoom(classNames, settings) {
                 $element.setAttribute(_dataTranslateY, 0);
 
                 removeClass($container, _active);
+                if (onZoomEnd) {
+                    onZoomEnd($container);
+                }
 
                 /* @->moveScaleElement */
                 moveScaleElement($element, 0, 0, 1);
@@ -231,6 +241,9 @@ function zoom(classNames, settings) {
                 $element.setAttribute(_dataTranslateY, 0);
 
                 addClass($container, _active);
+                if (onZoomStart) {
+                    onZoomStart($container);
+                }
 
                 /* @->moveScaleElement */
                 moveScaleElement($element, 0, 0, C_scaleDefault);
@@ -356,6 +369,9 @@ function zoom(classNames, settings) {
                     $element.setAttribute(_dataTranslateY, 0);
 
                     removeClass($container, _active);
+                    if (onZoomEnd) {
+                        onZoomEnd($container);
+                    }
 
                     /* @->moveScaleElement */
                     moveScaleElement($element, 0, 0, 1);
@@ -366,6 +382,9 @@ function zoom(classNames, settings) {
                     $element.setAttribute(_dataTranslateY, 0);
 
                     addClass($container, _active);
+                    if (onZoomStart) {
+                        onZoomStart($container);
+                    }
 
                     /* @->moveScaleElement */
                     moveScaleElement($element, 0, 0, C_scaleDefault);
@@ -435,8 +454,14 @@ function zoom(classNames, settings) {
 
                 if (targetScale > 1) {
                     addClass($container, _active);
+                    if (onZoomStart) {
+                        onZoomStart($container);
+                    }
                 } else {
                     removeClass($container, _active);
+                    if (onZoomEnd) {
+                        onZoomEnd($container);
+                    }
                 }
 
                 /* @->moveScaleElement */
@@ -545,8 +570,14 @@ function zoom(classNames, settings) {
 
         if (targetScale > 1) {
             addClass($container, _active);
+            if (onZoomStart) {
+                onZoomStart($container);
+            }
         } else {
             removeClass($container, _active);
+            if (onZoomEnd) {
+                onZoomEnd($container);
+            }
         }
 
         /* Set attributes */
