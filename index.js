@@ -708,3 +708,7 @@ function zoom(classNames, settings, callback) {
     return false;
   }
 }
+
+if (typeof module !== "undefined") {
+  module.exports = { zoom };
+}
