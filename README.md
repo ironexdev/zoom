@@ -11,7 +11,8 @@ https://zoom.by-ironex.com
 ## Installation
 
 - Option 1
-  - yarn install zoom-by-ironex
+  - yarn add zoom-by-ironex
+  - include it in your scripts
 - Option 2
   - Add `<script src="/directory/zoom-by-ironex.min.js"></script>` to the bottom of html `<body>`
 
