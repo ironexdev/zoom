@@ -1,0 +1,12 @@
+{
+  "name": "zoom-by-ironex",
+  "version": "1.0.0",
+  "description": "Zoom - lightweight (8Kb) ES5 javascript plugin without any dependencies, compatible with desktop and mobile devices. Supports doubleclick, mousemove, mousewheel, doubletap, touchmove and pinch events.",
+  "main": "index.js",
+  "repository": "https://github.com/ironexdev/zoom.git",
+  "author": "Ironex",
+  "license": "MIT",
+  "keywords": ["lightweight", "zoom", "plugin", "written", "in", "es5", "vanilla", "js"],
+  "bugs": "https://github.com/ironexdev/zoom/issues",
+  "website": "https://zoom.by-ironex.com"
+}
