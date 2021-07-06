@@ -12,7 +12,7 @@ https://zoom.by-ironex.com
 
 - Option 1
   - yarn add zoom-by-ironex
-  - include it in your scripts
+  - include it in your scripts ``` import { zoom } from "zoom-by-ironex"; ```
 - Option 2
   - Add `<script src="/directory/zoom-by-ironex.min.js"></script>` to the bottom of html `<body>`
 
