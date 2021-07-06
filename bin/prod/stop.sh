@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source bin/variables.sh
+. bin/dev/variables.sh
 
 # Stop stack
 docker stack rm $(PROJECT)
