@@ -15,10 +15,12 @@ RUN touch /var/run/nginx.pid
 
 RUN chown -R dockeruser:dockeruser /var/run/nginx.pid
 
+COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+
 COPY ./demo/ /home/dockeruser/zoom/
 
 COPY ./zoom-by-ironex.min.js /home/dockeruser/zoom/js/zoom-by-ironex.min.js
 
-COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+RUN chown -R /home/dockeruser/zoom
 
 USER dockeruser
