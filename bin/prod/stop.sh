@@ -3,4 +3,4 @@
 . bin/prod/variables.sh
 
 # Stop stack
-docker stack rm $(PROJECT)
+docker stack rm $PROJECT
