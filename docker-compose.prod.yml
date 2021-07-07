@@ -3,7 +3,6 @@ version: "3.9"
 services:
   zoom-nginx:
     image: ironex/zoom-nginx:1.0.0
-    container_name: zoom-nginx
     networks:
       - external
       - internal

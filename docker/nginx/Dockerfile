@@ -21,6 +21,6 @@ COPY ./demo/ /home/dockeruser/zoom/
 
 COPY ./zoom-by-ironex.min.js /home/dockeruser/zoom/js/zoom-by-ironex.min.js
 
-RUN chown -R /home/dockeruser/zoom
+RUN chown -R dockeruser:dockeruser /home/dockeruser/zoom
 
 USER dockeruser
