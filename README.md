@@ -4,10 +4,6 @@ Lightweight (8 Kb) ES5 javascript plugin without any dependencies, compatible wi
 
 Supports doubleclick, mousemove, mousewheel, doubletap, touchmove and pinch events.
 
-## Demo
-
-https://zoom.by-ironex.com
-
 ## Installation
 
 - Option 1
