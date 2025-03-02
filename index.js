@@ -27,7 +27,7 @@ function zoom(classNames, settings, callback) {
   var SCALE_DIFFERENCE = settings["scaleDifference"] || 0.5; // Used on wheel zoom
   var SCALE_MAX = settings["scaleMax"] || 10;
   var SCALE_MIN = settings["scaleMin"] || 1;
-  var SCROLL_DISABLE = settings["scrollDisable"] || true;
+  var SCROLL_DISABLE = settings.hasOwnProperty("scrollDisable") && settings["scrollDisable"] === false ? false: true;
   var TRANSITION_DURATION = settings["transitionDuration"] || 200; // This should correspond with zoom-transition transition duration
   var DOUBLECLICK_DELAY = settings["doubleclickDelay"] || 300;
 
